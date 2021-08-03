@@ -94,7 +94,15 @@ When the 'Add' button is clicked, get the text inside the input field and create
 Also clear the text inside the input field
 */
 
-
+const addBtn = document.getElementById("addArticleBtn");
+addBtn.addEventListener('click', () => {
+    const inputText = document.getElementById("input-p");
+    const newP = document.createElement("p");
+    newP.textContent = inputText.value;
+    const learnSection = document.querySelector("#mainArticles");
+    learnSection.appendChild(newP)
+    inputText.value = ""    
+})
 
 /*
 Task 7
