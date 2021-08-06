@@ -1,3 +1,4 @@
+
 /**
  *
  * For each of the names in the array passed into this function
@@ -13,9 +14,37 @@
  *      .....
  * </div>
  */
+
+
+
+
+ function exerciseOne(arrayOfpeople) {
+  let content = document.querySelector("#content");
+  
+  for (var i = 0; i < arrayOfpeople.length; i++) {
+    let h1 = content.appendChild(document.createElement('H1'));
+    h1.appendChild(document.createTextNode(arrayOfpeople.name));
+    h1.innerHTML = arrayOfpeople[i].name
+}
+ 
+for (var i = 0; i < arrayOfpeople.length; i++) {
+  let h2 = content.appendChild(document.createElement('H2'));
+  h2.appendChild(document.createTextNode(arrayOfpeople.name));
+  h2.innerHTML = arrayOfpeople[i].job
+}
+ }
+
+//// Another solution :
+
+/*
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
-}
+  arrayOfPeople.forEach(function (obj){ 
+      content.innerHTML += '<h1>' + obj.name +'</h1>'
+      content.innerHTML += '<h2>' + obj.job +'</h2>'
+    })
+  } 
+  */
 
 /**
  *
@@ -25,7 +54,14 @@ function exerciseOne(arrayOfPeople) {
  *
  */
 function exerciseTwo(shopping) {
-  //Write your code in here
+  let content = document.querySelector("#content");
+    
+    var list = content.appendChild(document.createElement('ul'))
+    for (var i = 0; i < shopping.length; i++) {
+        var item = document.createElement('li');
+        item.appendChild(document.createTextNode(shopping[i]));
+        list.appendChild(item);
+    }
 }
 
 /**
@@ -57,9 +93,37 @@ function exerciseTwo(shopping) {
 
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
+
 function exerciseThree(books) {
-  //Write your code in here
-}
+     let content = document.querySelector("#content");
+    let list = content.appendChild(document.createElement('ul'));
+    for (var i = 0; i < books.length; i++) {
+      let item = list.appendChild(document.createElement('li'))
+      let book = item.appendChild(document.createElement('p'))
+      book.innerHTML = books[i].title + ' - ' + books[i].author 
+      + '<br><img src="https://m.media-amazon.com/images/P/B06XCCZJ4L.01._SCLZZZZZZZ_SX500_.jpg">';    
+    
+    if (books[i].alreadyRead  === true) {
+      document.querySelector("p").style.background ="green"
+    }
+    else  {
+     document.querySelector("p").style.background ="red"
+    }
+  }
+  }
+   
+
+ 
+  
+
+
+
+
+      
+  
+        
+    
+
 
 //
 //
