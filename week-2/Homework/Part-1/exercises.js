@@ -15,36 +15,35 @@
  * </div>
  */
 
-
-
-
  function exerciseOne(arrayOfpeople) {
   let content = document.querySelector("#content");
   
   for (var i = 0; i < arrayOfpeople.length; i++) {
     let h1 = content.appendChild(document.createElement('H1'));
+    let h2 = content.appendChild(document.createElement('H2'));
     h1.appendChild(document.createTextNode(arrayOfpeople.name));
+    h2.appendChild(document.createTextNode(arrayOfpeople.name));
     h1.innerHTML = arrayOfpeople[i].name
+    h2.innerHTML = arrayOfpeople[i].job
+} 
 }
  
-for (var i = 0; i < arrayOfpeople.length; i++) {
-  let h2 = content.appendChild(document.createElement('H2'));
-  h2.appendChild(document.createTextNode(arrayOfpeople.name));
-  h2.innerHTML = arrayOfpeople[i].job
-}
- }
-
 //// Another solution :
 
 /*
 function exerciseOne(arrayOfPeople) {
   let content = document.querySelector("#content");
-  arrayOfPeople.forEach(function (obj){ 
-      content.innerHTML += '<h1>' + obj.name +'</h1>'
-      content.innerHTML += '<h2>' + obj.job +'</h2>'
+  arrayOfPeople.forEach(function (person){
+    let h1 = document.createElement("h1") 
+    let h2 = document.createElement("h2")
+    h1.innerText = person.name
+    h2.innerText = person.job
+    content.appendChild(h1)
+    content.appendChild(h2) 
     })
-  } 
-  */
+  } */ 
+
+  
 
 /**
  *
@@ -96,35 +95,27 @@ function exerciseTwo(shopping) {
 
 function exerciseThree(books) {
      let content = document.querySelector("#content");
-    let list = content.appendChild(document.createElement('ul'));
-    for (var i = 0; i < books.length; i++) {
-      let item = list.appendChild(document.createElement('li'))
-      let book = item.appendChild(document.createElement('p'))
-      book.innerHTML = books[i].title + ' - ' + books[i].author 
-      + '<br><img src="https://m.media-amazon.com/images/P/B06XCCZJ4L.01._SCLZZZZZZZ_SX500_.jpg">';    
-    
-    if (books[i].alreadyRead  === true) {
-      document.querySelector("p").style.background ="green"
+    let ul = document.createElement('ul')
+    books.forEach(book => {
+      let li = document.createElement('li')
+      let p = document.createElement('p')
+      p.innerText = book.title + "-" + book.author
+      let img = document.createElement('img')
+      img.src = book.imgUrl
+      if (book.alreadyRead) {
+      li.style.backgroundColor ="green"
     }
     else  {
-     document.querySelector("p").style.background ="red"
+     li.style.backgroundColor ="red"
     }
+    li.appendChild(p)
+    li.appendChild(img)
+    ul.appendChild(li)
+  })
+  content.appendChild(ul)
   }
-  }
-   
 
- 
   
-
-
-
-
-      
-  
-        
-    
-
-
 //
 //
 //
@@ -151,17 +142,20 @@ const books = [
   {
     title: "The Design of Everyday Things",
     author: "Don Norman",
-    alreadyRead: false
+    alreadyRead: false,
+    imgUrl :"file:///C:/Users/saido/Documents/migracode/javascript-module-2-main/week-2/Homework/Part-1/416Hql52NCL.jpg"
   },
   {
     title: "The Most Human Human",
     author: "Brian Christian",
-    alreadyRead: true
+    alreadyRead: true,
+    imgUrl :"file:///C:/Users/saido/Documents/migracode/javascript-module-2-main/week-2/Homework/Part-1/51aKPFuUy1L._SX324_BO1,204,203,200_.jpg"
   },
   {
     title: "The Pragmatic Programmer",
     author: "Andrew Hunt",
-    alreadyRead: true
+    alreadyRead: true,
+    imgUrl :"file:///C:/Users/saido/Documents/migracode/javascript-module-2-main/week-2/Homework/Part-1/41as+WafrFL._SX396_BO1,204,203,200_.jpg"
   }
 ];
 
