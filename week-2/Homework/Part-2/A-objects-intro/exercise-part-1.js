@@ -16,4 +16,18 @@ var car = {
 };
 
 */
+var phone = {
+    brand: "Apple",
+    model : "Iphone12",
+    Os : "iOS",
+    memory : "!128GB",
+    color : "gold"
 
+};
+
+var country = {
+    name : "morocco",
+    continent : " Africa",
+    language :("arabic","Tamazight"),
+    ethenic : "Arab-Berber",
+};
