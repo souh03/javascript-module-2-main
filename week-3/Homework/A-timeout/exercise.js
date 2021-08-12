@@ -16,7 +16,8 @@ function Color()
 { document.body.style.backgroundColor = document.body.style.backgroundColor == "green" ? "yellow" : "green";}
   setInterval(Color, 5000);
 
- /*
+ //another solution :
+/*
   var i = 0;
   function setColor() {
     var color = ["black", "blue", "brown", "green"];
