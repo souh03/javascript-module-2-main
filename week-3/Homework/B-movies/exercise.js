@@ -58,8 +58,11 @@ var movies = [
   },
 ];
 
+
+
+
 // create showMovies function
-function showMovies(movies) {
+function showMovies() {
   let content = document.querySelector("#all-movies");
   let content1 = document.querySelector("#movies-number");
   movies.forEach(movie => {
@@ -67,15 +70,57 @@ function showMovies(movies) {
     p.innerText = movie.title + " - " + movie.director
     content.appendChild(p)
     content1.innerText = movies.length
-
+ 
   }); 
 }
-setTimeout(showMovies(movies), 1000)
-
-
+setTimeout(showMovies, 1000);
 
 
 // create a new movie object for your favorite movie
 
+var favoriteMovie = {
+    title: "Interstellar",
+    director: "Christopher Nolan",
+    type: "Adventure-Darama",
+    haveWatched: true
+  }
 
 // create addMovies function
+
+function addMovies() {
+  let content = document.querySelector("#all-movies");
+  let p = document.createElement("p")
+  p.innerText = favoriteMovie.title+ " - " + favoriteMovie.director
+  content.appendChild(p) 
+  
+}
+setTimeout(addMovies, 2000);
+
+/// callbacks
+
+
+///task 4 : creating form
+
+function createMovieObject(title, director, genre, haveWatched) {
+  const movie = {
+     title: title,
+     director: director,
+     genre: genre,
+     haveWatched: haveWatched
+    }
+    return movie;
+    
+    }
+document.getElementById('save').addEventListener('click', event=> {
+  event.preventDefault();
+  let content = document.querySelector("#all-movies");
+  var title = document.getElementById('title').value;  
+  var director = document.getElementById('director').value;
+  var genre = document.getElementById('genre').value;
+  var haveWatched = document.getElementById('havewatched').value;
+  var newMovie = createMovieObject(title, director, genre, haveWatched); 
+  let p = document.createElement("p");
+  p.textContent = title + " - " + director +" - " + genre +" - " + haveWatched;
+  content.appendChild(p);
+  
+  });   
