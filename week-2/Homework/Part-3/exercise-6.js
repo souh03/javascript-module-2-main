@@ -101,3 +101,27 @@ var mentors = [
 
 //YOUR CODE HERE
 
+//// task 1
+
+mentors.forEach(
+  (person)=>{
+  if (person.job.city.includes("Barcelona") && person.skills.includes("React"))
+console.log("Hi, my name is " + person.firstName+ ", " + person.lastName + ". I work in Barcelona and i know React.")
+  })
+
+  /// task 2
+  mentors.forEach(
+    (person)=>{ 
+      if(person.job.city === " Barcelona")
+      person.class = "Jun1"
+
+      person.skills.push("SQL")
+   })
+
+
+   //// task 3
+    mentors.forEach((person)=>{
+     person.addskils = (skill)=>{
+       this.skills.push(skill)
+     }
+    })
